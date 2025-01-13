@@ -13,6 +13,7 @@ jobs:
         fetch-depth: 0
     - name: Build
       run: |
+        whoami
         dotnet --info
         set -e
         dotnet build -c 'Release'
