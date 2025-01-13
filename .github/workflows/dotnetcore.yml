@@ -7,6 +7,7 @@ jobs:
     runs-on: [self-hosted, Linux, lab, austin]
     container:
       image: mcr.microsoft.com/dotnet/sdk:8.0
+      options: --user xroot
     steps:
     - uses: actions/checkout@v4
       with:
