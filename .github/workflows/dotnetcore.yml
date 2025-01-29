@@ -17,5 +17,11 @@ jobs:
         dotnet --info
         set -e
         dotnet build -c 'Release'
+  test:    
+    runs-on: [self-hosted, Linux, lab, austin]
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
     - name: Test
       run: dotnet test Tests/CSharpCore/Tests.NetStandard.csproj --configuration Release --no-build /p:AltCover=true /p:AltCoverStrongNameKey=../../SharpSnmpLib/sharpsnmplib.snk /p:AltCoverAssemblyFilter='^(xunit)|(AltCover)|(SharpSnmpLib\.Tests)'
